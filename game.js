@@ -58,7 +58,7 @@ const checkEndGame = () =>{
     const disabledCards = document.querySelectorAll('.disabled-card');
 
     if(disabledCards.length === 20){
-        clearInterval(timer);
+        clearInterval(time);
         alert(`Parabéns, você acertou todas as cartas em ${segundos} segundos!`)
         resetGame();
     }

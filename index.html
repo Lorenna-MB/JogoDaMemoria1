@@ -7,22 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
     <header>
         <div class="cabecalho">
             <h1>Jogo da memória</h1>
             <img class="logo" src="assets/pokemonlogo.png" alt="Pokemon Logo">
         </div>
         <div class="placar">
-            <h3>Pontuação:</h3>
-            <h3>Tempo:</h3>
+            <h3>Pontuação: <span id="point">0</span></h3>
+            <h3>Tempo: <span id="timer">0s</span></h3>
         </div>
     </header>
-
     <div class="grid"></div>
-
-
-
-<script src="game.js"></script>
+    <button id="play-button">Play</button>
+</div> 
+    
+    <script src="game.js"></script>
 
 </body>
 </html>

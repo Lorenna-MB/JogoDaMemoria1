@@ -111,8 +111,6 @@ const revealCard = ({target}) =>{
 
         checkCards();
     }
-
-    target.parentNode.classList.add('reveal-card')
 }
 
 const createCards = (pokemons) => {

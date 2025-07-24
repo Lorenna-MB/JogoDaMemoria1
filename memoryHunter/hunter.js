@@ -1,5 +1,4 @@
 const grid = document.querySelector('.grid');
-
 const spanPlayer = document.querySelector('.player');
 
 const playerName = localStorage.getItem('player');
@@ -10,18 +9,19 @@ if (playerName) {
     spanPlayer.textContent = 'Player: Anônimo';
 }
 
-const pokemons= [
-    'pikachu',
-    'charmander',
-    'cubone',
-    'gengar',
-    'snorlax',
-    'mewtwo',
-    'jigglypuff',
-    'psyduck',
-    'bulbasaur',
-    'squirtle',
+const character= [
+    'alluka',
+    'chrollo',
+    'gon',
+    'hisoka',
+    'kaito',
+    'killua',
+    'komugi',
+    'meruem',
+    'kurapika',
+    'leorio',
 ]
+
 const createElement = (tag, className) => {
     const element = document.createElement(tag);
     element.className = className;
@@ -77,10 +77,10 @@ const checkEndGame = () =>{
 }
 
 const checkCards = () => {
-    const firstPokemon = firstCard.getAttribute('data-pokemons');
-    const secondPokemon = secondCard.getAttribute('data-pokemons');
+    const firstCharacter = firstCard.getAttribute('data-character');
+    const secondCharacter = secondCard.getAttribute('data-character');
 
-    if (firstPokemon === secondPokemon){
+    if (firstCharacter === secondCharacter){
 
         firstCard.firstChild.classList.add('disabled-card');
         secondCard.firstChild.classList.add('disabled-card');
@@ -125,31 +125,31 @@ const revealCard = ({target}) =>{
     }
 }
 
-const createCards = (pokemons) => {
+const createCards = (character) => {
 
     const card = createElement('div', 'card');
     const front = createElement('div', 'face front');
     const back = createElement('div', 'face back');
 
-    front.style.backgroundImage = `url('assets/pokemons/${pokemons}.jpg')`;
+    front.style.backgroundImage = `url('../assets/character/${character}.jpg')`;
 
     card.appendChild(front);
     card.appendChild(back);
 
     card.addEventListener('click', revealCard);
-    card.setAttribute('data-pokemons', pokemons)
+    card.setAttribute('data-character', character)
 
     return card;
 }
 
 const loadGame = () => {
 
-    const duplicatePokemons = [...pokemons, ...pokemons];
+    const duplicateCharacter = [...character, ...character];
 
-    const embaralhar = duplicatePokemons.sort( () => Math.random() - 0.5 );
+    const embaralhar = duplicateCharacter.sort( () => Math.random() - 0.5 );
 
-    embaralhar.forEach((pokemons)=> {
-        const card = createCards(pokemons);
+    embaralhar.forEach((character)=> {
+        const card = createCards(character);
         grid.appendChild(card);
 
     });
@@ -161,3 +161,4 @@ playButton.addEventListener('click', () => {
     startTime();
     loadGame(); 
 });
+

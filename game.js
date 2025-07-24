@@ -47,7 +47,6 @@ function startTime(){
         document.getElementById('timer').textContent= `${segundos}s`;
     },1000);
 }
-
 let resetTime=0;
 
 const playButton = document.getElementById('play-button');
@@ -55,6 +54,11 @@ const playButton = document.getElementById('play-button');
 function resetGame(){
     firstCard= '';
     secondCard= '';
+}
+
+function resetGame(){
+    firstCard='';
+    secondCard='';
     points= 0;
     segundos= 0;
 
@@ -100,9 +104,9 @@ const checkCards = () => {
             firstCard= '';
             secondCard= '';
 
+
         }, 650);
     }
-
 }
 
 const revealCard = ({target}) =>{
@@ -161,3 +165,4 @@ playButton.addEventListener('click', () => {
     startTime();
     loadGame(); 
 });
+
